@@ -30,22 +30,32 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
-                loaders: ['react-hot', 'babel'],
-                exclude: /node_modules/,
-                include: __dirname
-            }, {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-            }, {
-                test: /\.png$/,
-                loader: "url-loader?limit=100000"
-            }, {
-                test: /\.jpg$/,
-                loader: "file-loader"
-            }, {
-                test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-                loader: 'file-loader'
+              test: /\.(js|jsx)?$/,
+              loaders: ['babel?presets[]=es2015,presets[]=stage-0,presets[]=react,plugins[]=react-hot-loader/babel'],
+              exclude: /node_modules/,
+              include: __dirname
+            },
+            {
+              test: /\.css/,
+              loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
+              exclude: /node_modules/
+            },
+            {
+              test: /\.less$/,
+              loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader"),
+              exclude: /node_modules/
+            },
+            {
+              test: /\.png$/,
+              loader: "url-loader?limit=100000"
+            },
+            {
+              test: /\.jpg$/,
+              loader: "file-loader"
+            },
+            {
+              test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+              loader: 'file-loader'
             }
         ]
     }

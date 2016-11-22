@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import ReactDOM, {render} from 'react-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
 import configureStore from './store/configureStore';
@@ -15,7 +15,7 @@ const history = new createBrowserHistory();
 const store = configureStore();
 let rootElement = document.getElementById('root');
 
-ReactDOM.render(
+render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={LexiTheme}>
@@ -28,4 +28,3 @@ ReactDOM.render(
     </Provider>,
     rootElement
 );
-
