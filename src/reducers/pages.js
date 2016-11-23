@@ -4,7 +4,7 @@ export const DEFAULT_PAGE = 'defaultPage';
 
 let defaultPage = {
     content: {
-        rendered: ''
+        rendered: 'not found'
     },
     title: {
         rendered: ''

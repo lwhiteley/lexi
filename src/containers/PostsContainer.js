@@ -36,18 +36,18 @@ class PostsContainer extends Component {
         };
 
         let nextLink = {
-            link: <Link to={"/" + (pageNum + 1)} onClick={() => this.handlePaginationClick(pageNum + 1)}>{nextText}</Link>,
+            link: <Link to={"/post/" + (pageNum + 1)} onClick={() => this.handlePaginationClick(pageNum + 1)}>{nextText}</Link>,
             enabled: true
         };
 
         if (pageNum > 1 && pageNum < totalPages) {
-            prevLink.link = <Link to={"/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
+            prevLink.link = <Link to={"/post/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
             prevLink.enabled = true;
         } else if (pageNum == totalPages) {
             nextLink.link = <a>{nextText}</a>;
             nextLink.enabled = false;
 
-            prevLink.link = <Link to={"/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
+            prevLink.link = <Link to={"/post/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
             prevLink.enabled = true;
         }
 
@@ -70,7 +70,7 @@ class PostsContainer extends Component {
     render() {
         const { posts, totalPages, pageNum = 1 } = this.props;
 
-        console.log('PostsContainer:render');
+        console.log('PostsContainer:render', pageNum);
 
         return (
             <div className="article-listing">
@@ -84,11 +84,12 @@ class PostsContainer extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
         posts: state.posts.posts,
         pageNum: state.posts.pageNum,
         totalPages: state.posts.totalPages
+        // ...ownProps
     };
 }
 

@@ -11,7 +11,7 @@ module.exports = {
         './src/index'
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'dist/assets'),
         filename: 'bundle.js',
         publicPath: '/'
     },
@@ -23,7 +23,7 @@ module.exports = {
             inject: true
         }),
         new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin("style.css", {
+        new ExtractTextPlugin("styles.bundle.css", {
             allChunks: true
         })
     ],

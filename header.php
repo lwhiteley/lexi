@@ -16,14 +16,14 @@
 	<title>Lexi WordPress theme</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="<?php get_template_directory_uri(); ?>/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?php get_template_directory_uri(); ?>/wordpress/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?php get_template_directory_uri(); ?>/css/styles.bundle.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="<?php get_template_directory_uri(); ?>/dist/css/blog.css" rel="stylesheet">
+	<link href="<?php get_template_directory_uri(); ?>/wordpress/assets/css/blog.css" rel="stylesheet">
 </head>
 
 <body>
 <?php
 
 wp_head();
-

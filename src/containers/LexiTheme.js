@@ -18,7 +18,7 @@ export default class LexiTheme extends Component {
                         <div className="col-sm-8 blog-main">
                             {this.props.children}
                         </div>
-                        <Sidebar />
+                        {/* <Sidebar /> */}
                     </div>
                 </div>
                 <Footer />
@@ -26,4 +26,3 @@ export default class LexiTheme extends Component {
         );
     }
 }
-
