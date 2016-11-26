@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 import { Link } from 'react-router';
 import Post from '../components/Post';
+import {ROOT} from '../wp-url.js';
 
 // Smart component
 class PostsContainer extends Component {
@@ -19,7 +20,7 @@ class PostsContainer extends Component {
     }
 
     handlePaginationClick(pageNum) {
-        console.log('pagination clicked');
+        console.log('pagination clicked: ', pageNum);
 
         scroll(0, 0);
 
@@ -36,18 +37,18 @@ class PostsContainer extends Component {
         };
 
         let nextLink = {
-            link: <Link to={"/post/" + (pageNum + 1)} onClick={() => this.handlePaginationClick(pageNum + 1)}>{nextText}</Link>,
+            link: <Link to={ROOT + "/post/" + (pageNum + 1)} onClick={() => this.handlePaginationClick(pageNum + 1)}>{nextText}</Link>,
             enabled: true
         };
 
         if (pageNum > 1 && pageNum < totalPages) {
-            prevLink.link = <Link to={"/post/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
+            prevLink.link = <Link to={ROOT + "/post/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
             prevLink.enabled = true;
         } else if (pageNum == totalPages) {
             nextLink.link = <a>{nextText}</a>;
             nextLink.enabled = false;
 
-            prevLink.link = <Link to={"/post/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
+            prevLink.link = <Link to={ROOT + "/post/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
             prevLink.enabled = true;
         }
 

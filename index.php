@@ -3,6 +3,7 @@
  * @ Lamosty.com 2015
  */
 
-get_header();
-
-get_footer();
+ get_header();
+?>
+<div id="root"> </div>
+<?php get_footer(); ?>

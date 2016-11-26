@@ -11,6 +11,7 @@ import PostContainer from './containers/PostContainer';
 import AboutPageContainer from './containers/AboutPageContainer';
 import '../sass/bootstrap.css';
 import '../sass/bootstrap-blog.css';
+import { ROOT } from './wp-url.js';
 
 // const history = new createBrowserHistory();
 const store = configureStore();
@@ -20,11 +21,11 @@ let rootElement = document.getElementById('root');
 render(
     <Provider store={store}>
         <Router history={history}>
-            <Route path="/" component={LexiTheme}>
+            <Route path={ROOT} component={LexiTheme}>
                 <IndexRoute component={PostsContainer} />
-                <Route path="about" component={AboutPageContainer} />
-                <Route path="post/:pageNum" component={PostsContainer} />
-                <Route path=":year/:month/:name" component={PostContainer} />
+                <Route path={`${ROOT}/about`} component={AboutPageContainer} />
+                <Route path={`${ROOT}/post/:pageNum`} component={PostsContainer} />
+                <Route path={`${ROOT}/:year/:month/:name`} component={PostContainer} />
             </Route>
         </Router>
     </Provider>,
