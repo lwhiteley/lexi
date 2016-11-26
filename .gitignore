@@ -1,4 +1,8 @@
 node_modules
 dist
 npm-debug.log
-src/wp-url.js
+#src/wp-url.js
+.DS_Store
+tmp
+*.tmp
+*.zip

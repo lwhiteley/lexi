@@ -32,14 +32,17 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
+    "tar.gz": "^1.0.5",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
     "copy": "copy *.php *.css dist",
+    "zip": "targz compress dist dist.zip",
+    "package": "npm run copy && npm run zip",
     "clean": "rimraf dist",
     "build": "npm run clean && webpack",
-    "build-dist": "npm run build && npm run copy",
+    "build-dist": "npm run build && npm run package",
     "start": "npm run build && node server.js"
   }
 }
